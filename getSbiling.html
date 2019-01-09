@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+  <ul>
+    <li id="item1">选项1</li>
+    <li id="item2">选项2</li>
+    <li id="item3">选项3</li>
+    <li id="item4">选项4</li>
+    <li id="item5">选项5</li>
+  </ul>
+  <script>
+  window.ffdom = {} /*yui*/
+ffdom.getSiblings = function (node) { /* API */
+  var allChildren = node.parentNode.children
+
+  var array = {
+    length: 0
+  }
+  for (let i = 0; i < allChildren.length; i++) {
+    if (allChildren[i] !== node) {
+      array[array.length] = allChildren[i]
+      array.length += 1
+    }
+  }
+  return array
+}
+ffdom.addClass = function (node, classes) {
+  classes.forEach( (value) => node.classList.add(value) )
+}
+
+ffdom.getSiblings(item3)
+ffdom.addClass(item3, ['a','b','c'])
+
+Node.prototype.getSiblings = function(){
+  var allChildren = this.parentNode.children
+
+  var array = {
+    length: 0
+  }
+  for (let i = 0; i < allChildren.length; i++) {
+    if (allChildren[i] !== this) {
+      array[array.length] = allChildren[i]
+      array.length += 1
+    }
+  }
+  return array
+}
+item3.getSiblings()
+  </script>
+</body>
+</html>
