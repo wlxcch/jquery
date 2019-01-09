@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+</head>
+<body>
+<ul>
+  <li class="items1">选项1</li>
+  <li class="items2">选项2</li>
+  <li class="items3">选项3</li>
+  <li class="items4">选项4</li>
+  <li class="items5">选项5</li>
+</ul>
+<script>
+    // var allChildren = items3.parentNode.children
+    // var array={length:0}
+    // for(let i=0;i<allChildren.length;i++){
+    //     if(allChildren[i]!==items3){
+    //     array[array.length]=allChildren[i]
+    //     array.length+=1 }
+    // }
+    //  console.log(array)
+
+window.jQuery = function(nodeOrSelector){
+    let nodes={}
+    if(typeof nodeOrSelector==='string'){
+      let temp=document.querySelector(nodeOrSelector)
+      for(let i=0;i<temp.length;i++){
+        nodes[i]=temp[i]
+      }
+      nodes.length=temp.length
+    }
+  else if(nodeOrSelector instanceOf Node){
+    nodes={0:nodeOrSelector 
+          length:1}
+  }
+  
+  // 更改文本，合并getText和setText
+  nodes.text=function(text){
+    if (text===undefined)
+    {var texts=[]
+    for(let i=0;i<nodes.length;i++){
+      text.push(nodes[i].textContent)
+    }
+    return texts}
+    else{for(let i=0;i<nodes.length;i++)
+      nodes[i].textContent=text}
+  }
+  
+//给选择出来的元素，添加class属性
+  nodes.addClass=function(classes){
+    classes.forEach(value=>{
+      for(let i=0;i<nodes.length;i++)})
+  } 
+  return nodes
+}
+// 得到节点的兄弟元素
+Node.prototype.getSiblings = function(){
+  var allChildren = this.parentNode.children
+
+  var array = {
+    length: 0
+  }
+  for (let i = 0; i < allChildren.length; i++) {
+    if (allChildren[i] !== this) {
+      array[array.length] = allChildren[i]
+      array.length += 1
+    }
+  }
+  return array
+}
+</script>
+</body>
+</html>
