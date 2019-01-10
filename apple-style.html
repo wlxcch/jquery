@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <style>
+  .imgs{
+    display:flex;
+    align-items:flex-start;
+    transition:transform 0.5s;
+    border:1px solid red;
+    //红色框是目前的显示屏大小，不跟三个图片的大小空间相等
+    
+  }
+    .window{
+      border:2px solid green;
+      width:300px;
+      overflow:hidden;
+     
+    }
+  </style>
+</head>
+<body>
+  <div class='window'>
+  <div class='imgs' id="imgs">
+    <img src="https://www.thesprucepets.com/thmb/IQGCoLl7dB6RaigKHDZbw3myQvg=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/portrait-if-a-spitz-pomeranian_t20_v3o29E-5ae9bbdca18d9e0037d95983.jpg" width=300 alt="">
+    <img src="https://cmeimg-a.akamaihd.net/640/cme/cuteness_data/s3fs-public/diy_blog/How-to-Choose-the-Best-Toys-for-Small-Dogs.jpg"  width=300 alt="">
+    <img src="https://iheartdogs.com/wp-content/uploads/2015/07/shutterstock_273373859.jpg"  width=300 alt="">
+  </div>
+</div>
+  <button id="p1">第1张</button>
+  <button id="p2">第2张</button>
+  <button id="p3">第3张</button>
+
+  <script>
+  $(p1).on('click',function(){
+  $(imgs).css({
+    transform:'translateX(0)'
+  });
+});
+$(p2).on('click',function(){
+  $(imgs).css({
+    transform:'translateX(-300px)'
+  });
+});
+$(p3).on('click',function(){
+  $(imgs).css ({
+    transform:'translateX(-600px)'
+  });
+});
+  </script>
+
+</body>
+</html>
