@@ -19,6 +19,9 @@
       overflow:hidden;
      
     }
+    .red{
+        color: red;
+    }
   </style>
 </head>
 <body>
@@ -50,8 +53,9 @@ for(let i=0;i<allButtons.length;i++){
       transform:'translate('+p+'px)'
     });
     n=index
-    allButtons.eq(n).addClass('red')
-    .siblings('.red').removeClass('red')
+    // allButtons.eq(n).addClass('red')
+    // .siblings('.red').removeClass('red')
+    activeButton(allButtons.eq(n))
   });
 };
 
@@ -62,19 +66,35 @@ for(let i=0;i<allButtons.length;i++){
 
 var n=0;
 var size=allButtons.length
-allButtons.eq(n % size).trigger('click').addClass('red').siblings('.red').removeClass('red')
-var timerId=setInterval(()=>{
+playSlide(n % size)
+// .addClass('red').siblings('.red').removeClass('red')=======
+// activeButton(allButtons.eq(n % size))======playSlide(n % size)
+var timerId=setTimer()
+function setTimer(){
+return timerId=setInterval(()=>{
   n+=1
-allButtons.eq(n % size).trigger('click').addClass('red').siblings('.red').removeClass('red')},1000)
+allButtons.eq(n % size).trigger('click')
+                 playSlide(n % size)          
+                                     },1000)
+
+}
+
+function  playSlide(index){
+    allButtons.eq(index).trigger('click')
+}
+
+function activeButton($button){
+    $button
+    .addClass('red').siblings('.red').removeClass('red')
+}
+
 $('.window').on('mouseenter',function(){
   window.clearInterval(timerId)
 })
 $('window').on('mouseleave',function(){
-  timerId=setInterval(()=>{
-    n+=1
-    allButtons.eq(n % size).trigger('click').addClass('red').siblings('.red').removeClass('red')
-  }, 3000)
+ timerId=setTimer()
 })
+    // allButtons.eq(n % size).trigger('click').addClass('red').siblings('.red').removeClass('red')======playSlide(n % size)
 
 
   </script>
