@@ -1,7 +1,7 @@
-$(`.images>img:nth-child(1)`.addClass('current')
-$(`.images>img:nth-child(2)`.addClass('enter')
-$(`.images>img:nth-child(3)`.addClass('enter')
-把初始化的代码优化一下
+$('.images>img:nth-child(1)').addClass('current')
+$('.images>img:nth-child(2)').addClass('enter')
+$('.images>img:nth-child(3)').addClass('enter')
+// 把初始化的代码优化一下
 // 代码重复需要优化
 let n=1
 setInterval(()=>{ 

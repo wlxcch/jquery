@@ -1,11 +1,11 @@
 
 // 代码重复需要优化
 let n=1
-function init()//初始化
+init()//初始化
 setInterval(()=>{ 
     //$里要用模板字符串，1旁边，反引号`` 
     makeLeave(getImage(n))
-     .one('transitionend',(e)=>{ $(e.currentTarget)
+     .one('transitionend',(e)=>{ makeEnter($(e.currentTarget))
      })
     makeCurrent( getImage(n+1))
     n +=1
@@ -20,7 +20,7 @@ setInterval(()=>{
 ///////////////////////
 //下面可以不看，是封装后的代码
 /////////////////////////
-function getImages(n){
+function getImage(n){
     return $(`.images>img:nth-child(${x(n)})`)
 }
 
@@ -37,10 +37,11 @@ function x(n){
 //初始化
 function init(){
     n=1
-    $(`.images>img:nth-child(${n})`.addClass('current').siblings().addClass('enter')
+    $(`.images>img:nth-child(${n})`).addClass('current').siblings().addClass('enter')
     }
     function makeCurrent($node){
         $node.removeClass('enter leave').addClass('current')
+        return $node
     }
     function makeLeave($node){
         $node.removeClass('enter current').addClass('leave')
@@ -48,4 +49,5 @@ function init(){
     }
     function makeEnter($node){
         $node.removeClass('current leave').addClass('enter ')
+        return $node
     }
