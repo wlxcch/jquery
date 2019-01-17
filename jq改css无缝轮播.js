@@ -7,7 +7,7 @@ setTimeout(function(){
     })
     // 动画结束之后运行的代码
     $(`.images>img:nth-child(1)`).one(
-        'transitioned',function(e){$(e.currentTarget).addClass('right').css({transform:'none'})}
+        'transitioned',function(e){$(e.currentTarget).css({transform:'none'}).addClass('right')}
     )
 },3000)
 setTimeout(function(){
@@ -20,7 +20,7 @@ setTimeout(function(){
     })
      // 动画结束之后运行的代码 用.one是最近一次发生了变化，只执行一次。然后就不监听了
      $(`.images>img:nth-child(2)`).one(
-        'transitioned',function(e){$(e.currentTarget).addClass('right').css({transform:'none'})}
+        'transitioned',function(e){$(e.currentTarget).css({transform:'none'}).addClass('right')}
     )
 },6000)
 setTimeout(function(){
@@ -33,7 +33,7 @@ setTimeout(function(){
     })
      // 动画结束之后运行的代码
      $(`.images>img:nth-child(3)`).one(
-        'transitioned',function(e){$(e.currentTarget).addClass('right').css({transform:'none'})}
+        'transitioned',function(e){$(e.currentTarget).css({transform:'none'}).addClass('right')}
     )
 },9000)
 //这样无限写下去就可以形成无缝录播。但是图片数量太多的时候就有点麻烦，代码就会很多。代码多久容易出错！
@@ -46,6 +46,6 @@ setTimeout(function(){
     })
     // 动画结束之后运行的代码
     $(`.images>img:nth-child(1)`).one(
-        'transitioned',function(e){$(e.currentTarget).addClass('right').css({transform:'none'})}
+        'transitioned',function(e){$(e.currentTarget).css({transform:'none'}).addClass('right')}
     )
 },12000)
